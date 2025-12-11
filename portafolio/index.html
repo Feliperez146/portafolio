@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Felipe Pérez | Portafolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="left-section">
+      <div class="logo">Felipe Pérez</div>
+      <button class="dark-mode-toggle" id="darkModeToggle">
+        <span class="sun">☀️</span>
+        <span class="moon">🌙</span>
+      </button>
+    </div>
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#sobremi">Sobre mí</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="main-card">
+      <!-- INICIO -->
+      <section id="inicio" class="inicio">
+        <div class="intro">
+          <h1>Hola, soy Felipe Pérez</h1>
+          <p>Diseñador web y UX/UI enfocado en crear experiencias digitales simples, funcionales y elegantes.</p>
+          <a href="#proyectos" class="btn">Ver proyectos</a>
+        </div>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section id="proyectos" class="proyectos">
+        <h2>Proyectos destacados</h2>
+        <div class="grid">
+          <div class="card">
+            <img src="images/image.png" alt="Menú Restaurante Bella Vista">
+            <h3>Menú Digital Bella Vista</h3>
+            <p>Diseño de menú digital para restaurante de cocina mediterránea contemporánea.</p>
+          </div>
+          <div class="card">
+            <img src="images/perfumeria-nuevo.png" alt="E-commerce perfumería">
+            <h3>Perfumería Essence</h3>
+            <p>Desarrollo de e-commerce completo para perfumería, con catálogo de productos, carrito de compras y sistema de pagos integrado.</p>
+          </div>
+          <div class="card">
+            <img src="images/estudio-abogados.png" alt="Landing page estudio de abogados">
+            <h3>Estudio Jurídico Central</h3>
+            <p>Landing page profesional para estudio de abogados, diseñada para generar confianza y facilitar el contacto con nuevos clientes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOBRE MÍ -->
+      <section id="sobremi" class="sobremi">
+        <h2>Sobre mí</h2>
+        <p>
+          Soy un diseñador web con enfoque UX/UI que busca la armonía entre estética y funcionalidad.
+          Me gusta trabajar con código limpio (HTML, CSS y algo de JS) y priorizar la experiencia del usuario
+          en cada proyecto que realizo.
+        </p>
+      </section>
+
+      <!-- SERVICIOS -->
+      <section id="servicios" class="servicios">
+        <h2>Servicios</h2>
+        <ul>
+          <li class="service-item">
+            <span class="service-title">Diseño UX/UI</span>
+            <div class="service-description">
+              Creación de interfaces intuitivas y experiencias de usuario centradas en las necesidades del usuario final, con wireframes, prototipos y testing de usabilidad.
+            </div>
+          </li>
+          <li class="service-item">
+            <span class="service-title">Maquetado web (HTML y CSS)</span>
+            <div class="service-description">
+              Desarrollo front-end con código limpio y semántico, utilizando las mejores prácticas de HTML5 y CSS3 para crear sitios web rápidos y accesibles.
+            </div>
+          </li>
+          <li class="service-item">
+            <span class="service-title">Experiencia de usuario</span>
+            <div class="service-description">
+              Análisis y optimización del journey del usuario, investigación de usuarios, arquitectura de información y mejora continua de la experiencia digital.
+            </div>
+          </li>
+          <li class="service-item">
+            <span class="service-title">Diseño responsive</span>
+            <div class="service-description">
+              Desarrollo de sitios web que se adaptan perfectamente a cualquier dispositivo, desde móviles hasta pantallas de escritorio, garantizando una experiencia óptima.
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto" class="contacto">
+        <h2>Contacto</h2>
+        <p>Para más información, contactar con:</p>
+        <div class="contact-links">
+          <p><a href="mailto:felipperez146@gmail.com">📧 felipperez146@gmail.com</a></p>
+          <p><a href="https://github.com/feliperez146" target="_blank" rel="noopener noreferrer">💻 GitHub - @feliperez146</a></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Felipe Pérez</p>
+  </footer>
+
+  <script>
+    // Menú hamburguesa
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer click en un enlace
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+      });
+    });
+
+    // Modo oscuro
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+
+    // Configurar modo oscuro por defecto
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      html.setAttribute('data-theme', savedTheme);
+    } else {
+      // Establecer modo oscuro como predeterminado
+      html.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+
+    // Toggle modo oscuro
+    darkModeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>
